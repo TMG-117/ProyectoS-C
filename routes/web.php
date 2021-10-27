@@ -1,10 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route,
+App\Http\Controllers\ProductoController;
 
-
-route::get('/' , function (){
-	return view('layout');
-})->name('home');
-
-
+Route::resource('productos', ProductoController::class);
