@@ -1,20 +1,21 @@
 @extends("layout.layout")
 @section("titulo", "Registrar producto")
 @section("contenido")
-    <div class="row">
-        <div class="col-12">
-            <form method="POST" action="{{route("productos")}}">
-                @csrf
-                <div class="form-group">
-                    <label class="label">Nombre</label>
-                    <input required autocomplete="off" name="nombre" class="form-control"
-                           type="text" placeholder="Nombre">
-                </div>
+    <form action="{{url('/productos')}}" method="post">
+    @csrf    
+        <label for"NombreProducto">Nombre del producto</label>
+        <input type="text" name="NombreProducto" id="NombreProducto">
+        <br>
 
-                @include("notificacion")
-                <button class="btn btn-success">Guardar</button>
-                <a class="btn btn-primary" href="{{route("index")}}">Volver al listado</a>
-            </form>
-        </div>
-    </div>
+        <label for"PrecioProducto">precio del producto</label>
+        <input type="text" name="PrecioProducto"id="PrecioProducto">
+        <br>
+
+        <label for"DescripcionProducto">descripcion del producto</label>
+        <input type="text"name="DescrpcionProducto" id="DescrpcionProducto">
+        <br>
+
+        <input type="submit" value="guardar">
+    </form>
 @endsection
+P

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\productos;
 use Illuminate\Http\Request;
 
 class ProductoController extends Controller
@@ -35,9 +35,10 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $producto = New Producto ($request->input());
-        $producto -> saveOrfail();
-        return redirect()->rute("index.blade.php")->with(["mensaje"=>"Producto Creado"]);
+        $productoCrear =request()->except('_token');
+    //productos::insert($productoCrear);
+
+        return Response()->json($productoCrear);
     }
 
     /**

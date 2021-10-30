@@ -19,7 +19,7 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-						<a class="navbar-brand" href="{{url'home'}}')">Menu</a>
+						<a class="navbar-brand" href="#">Menu</a>
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">							
 							<li class="nav-item">
 								<a class="nav-link" href="{{url('productos')}}">productos</a>
@@ -48,7 +48,7 @@
 							data-ripple-color="light"
 						  >
 							<img
-							  src="https://s1.significados.com/foto/tecnologia-dura-fa.jpg"
+							  src="https://media.elmostrador.cl/2019/03/Captura-de-pantalla-2019-03-25-a-las-07.14.26-468x272.png"
 							  class="w-100"
 							/>
 							<a href="#!">
@@ -153,7 +153,7 @@
 				  <!-- Copyright -->
 				  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
 					© 2020 Copyright:
-					<a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+					<a class="text-white" href="https://mdbootstrap.com/">S&C MDBootstrap.com</a>
 				  </div>
 				  <!-- Copyright -->
 				</footer>
