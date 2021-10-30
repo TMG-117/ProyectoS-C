@@ -24,7 +24,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        return view("productos.create");
     }
 
     /**
@@ -35,7 +35,9 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $producto = New Producto ($request->input());
+        $producto -> saveOrfail();
+        return redirect()->rute("index.blade.php")->with(["mensaje"=>"Producto Creado"]);
     }
 
     /**
@@ -55,9 +57,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Producto $producto)
     {
-        //
+        return view ("edit",["nivel"=> $nivel,]);
     }
 
     /**
@@ -69,7 +71,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return view ("edit",["producto"=>$producto]);
     }
 
     /**

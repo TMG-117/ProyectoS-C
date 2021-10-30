@@ -19,7 +19,7 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-						<a class="navbar-brand" href="">Menu</a>
+						<a class="navbar-brand" href="{{url'home'}}')">Menu</a>
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">							
 							<li class="nav-item">
 								<a class="nav-link" href="{{url('productos')}}">productos</a>
@@ -48,7 +48,7 @@
 							data-ripple-color="light"
 						  >
 							<img
-							  src="https://mdbootstrap.com/img/new/fluid/city/113.jpg"
+							  src="https://s1.significados.com/foto/tecnologia-dura-fa.jpg"
 							  class="w-100"
 							/>
 							<a href="#!">
@@ -65,7 +65,7 @@
 							data-ripple-color="light"
 						  >
 							<img
-							  src="https://mdbootstrap.com/img/new/fluid/city/111.jpg"
+							  src="https://s1.significados.com/foto/tecnologia-dura-fa.jpg"
 							  class="w-100"
 							/>
 							<a href="#!">
@@ -82,7 +82,7 @@
 							data-ripple-color="light"
 						  >
 							<img
-							  src="https://mdbootstrap.com/img/new/fluid/city/112.jpg"
+							  src="https://cdn-3.expansion.mx/dims4/default/f0ee3fe/2147483647/strip/true/crop/1000x667+0+0/resize/1200x800!/format/webp/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Ff0%2F1d%2Fd0b7fd994e67a9f48564db5f7507%2Fistock-856757428-copy.jpg"
 							  class="w-100"
 							/>
 							<a href="#!">
@@ -99,7 +99,7 @@
 							data-ripple-color="light"
 						  >
 							<img
-							  src="https://mdbootstrap.com/img/new/fluid/city/114.jpg"
+							  src="https://conceptodefinicion.de/wp-content/uploads/2021/01/tecnologia-.jpg"
 							  class="w-100"
 							/>
 							<a href="#!">
@@ -116,7 +116,7 @@
 							data-ripple-color="light"
 						  >
 							<img
-							  src="https://mdbootstrap.com/img/new/fluid/city/115.jpg"
+							  src="https://academiadiplomatica.cl/wp-content/uploads/2020/12/Tecnologia-1.jpg"
 							  class="w-100"
 							/>
 							<a href="#!">
@@ -133,7 +133,7 @@
 							data-ripple-color="light"
 						  >
 							<img
-							  src="https://mdbootstrap.com/img/new/fluid/city/116.jpg"
+							  src="https://www.latino-news.com/wp-content/uploads/2019/01/tecnologia.png"
 							  class="w-100"
 							/>
 							<a href="#!">

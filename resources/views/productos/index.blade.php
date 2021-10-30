@@ -1,31 +1,41 @@
 @extends ('layout.layout')
 @section('title','Listado de productos')
 @section('contenido')
-	<table class="table table-dark table-striped">
-		<tr>
-			<th scope="col">Nro</th>
-			<th scope="col">Nombre</th>
-			<th scope="col">apellido</th>
-			<th scope="col">contacto</th>
-		</tr>
-		<tr>
-			<th scope="row">1</th>
-			<td>Mark</td>
-			<td>Otto</td>
-			<td>themarck@gmail.com</td>
-		</tr>
-		<tr>
-			<th scope="row">2</th>
-			<td>Jacob</td>
-			<td>Thornton</td>
-			<td>jacoboth@gmail.com</td>
-		</tr>
-			<tr>
-			<th scope="row">3</th>
-			<td>larry</td>
-			<td>olsonn</td>
-			<td>theolsonn@gmail.com</td>
-				
-		</tr>
-	</table>
+
+    <div class="row">
+        <div class="col-12">
+            <a href="#" class="btn btn-success mb-2">Agregar</a>
+         // @include("notificacion")//
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th></tr>
+                </thead>
+                <tbody>
+                @foreach
+                    <tr>
+                        <td>{{$nombreproducto->nombre}}</td>
+                        <td>
+                            <a class="btn btn-warning" href="{{route("edit",[$producto])}}">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <form action="{{route("niveles.destroy", [$nivel])}}" method="post">
+                                @method("delete")
+                                @csrf
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+
+        </div>
+    </div>
 @endsection

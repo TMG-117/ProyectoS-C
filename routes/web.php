@@ -8,3 +8,4 @@ Route::resource('productos', ProductoController::class);
 Route::get('/',function(){
 	return view ('welcome');
 });
+
