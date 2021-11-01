@@ -1,21 +1,28 @@
 @extends("layout.layout")
 @section("titulo", "Registrar producto")
 @section("contenido")
+
+     <br>
     <form action="{{url('/productos')}}" method="post">
-    @csrf    
-        <label for"NombreProducto">Nombre del producto</label>
-        <input type="text" name="NombreProducto" id="NombreProducto">
+    @csrf 
+        <div class="mb-3">
+            <label for="NombreProducto" class="form-label">Nombre Del Producto</label>
+            <input type="text" class="From-Control" id="NombreProducto" >
+        </div>   
+        <div class="mb-3">
+            <label for="PrecioProducto" class="form-label">Precio Del Producto</label>
+            <input type="text" class="From-Control" id="PrecioProducto" >
+        </div>
         <br>
-
-        <label for"PrecioProducto">precio del producto</label>
-        <input type="text" name="PrecioProducto"id="PrecioProducto">
+        <div class="mb-3">
+            <label for="DescripcionProducto" class="form-label">Descripcion Del Producto</label>
+            <input type="text" class="from-control" id="DescripcionProducto" >
+        </div>        
         <br>
-
-        <label for"DescripcionProducto">descripcion del producto</label>
-        <input type="text"name="DescrpcionProducto" id="DescrpcionProducto">
-        <br>
-
         <input type="submit" value="guardar">
     </form>
+    
+    <p>hola texto prueba css</p>
 @endsection
-P
+
+
