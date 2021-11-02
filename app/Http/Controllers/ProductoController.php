@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\productos;
 use Illuminate\Http\Request;
 
+
 class ProductoController extends Controller
 {
     /**
@@ -58,9 +59,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $producto)
+    public function edit()
     {
-        return view ("edit",["nivel"=> $nivel,]);
+        return view ("productos.edit");
     }
 
     /**

@@ -7,7 +7,7 @@
 
 		<!-- Bootstrap CSS -->
 		<link href="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css') }}" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link rel="stylesheet" href="{{ asset('estilos/create.css') }}" />
+        
 		<title>@yield ('title')</title>
 	</head>
 	<body>
@@ -19,16 +19,10 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-						<a class="navbar-brand" href="#">Menu</a>
+						<a class="navbar-brand" href="{{url('productos/')}}">Menu</a>
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">							
 							<li class="nav-item">
-								<a class="nav-link" href="{{url('productos')}}">productos</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">editar</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" href='#'>categorias</a>
+								<a class="nav-link" href="{{url('productos/create')}}">crear</a>
 							</li>
 						</ul>
 					</div>

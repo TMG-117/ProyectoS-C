@@ -22,7 +22,6 @@
         <input type="submit" value="guardar">
     </form>
     
-    <p>hola texto prueba css</p>
-@endsection
+    @endsection
 
 
