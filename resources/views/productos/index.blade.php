@@ -1,7 +1,9 @@
 @extends ('layout.layout')
 @section('title','Listado de productos')
 @section('contenido')
-<link rel="stylesheet" type="text/css" href="estilos/css">
+
+<h3>Listado de productos</h3>
+<a class="btn btn-success" href="{{ url('/productos/create') }}" role="button">Nuevo producto</a>
 <table class="table">
   <thead>
     <tr>
@@ -9,6 +11,8 @@
       <th scope="col">First</th>
       <th scope="col">Last</th>
       <th scope="col">Handle</th>
+	  <th scope="col">Editar</th>
+      <th scope="col">Eliminar</th>
     </tr>
   </thead>
   <tbody>

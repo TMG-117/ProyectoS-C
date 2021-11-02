@@ -36,10 +36,11 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $productoCrear =request()->except('_token');
-    //productos::insert($productoCrear);
+        //$productoCrear =request()->except('_token');
+		//productos::insert($productoCrear);
 
-        return Response()->json($productoCrear);
+        //return Response()->json($productoCrear);
+		dd($request);
     }
 
     /**
