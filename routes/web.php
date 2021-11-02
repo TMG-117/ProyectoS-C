@@ -17,3 +17,4 @@ Route::get('/productos/create',[ProductoController::class,'create']);
 
 Route::resource('productos', ProductoController::class);
 	
+Route::get('/productos/edit',[ProductoController::class,'edit']);
