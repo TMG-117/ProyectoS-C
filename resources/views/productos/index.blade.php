@@ -4,7 +4,6 @@
 
 <h3>Listado de productos</h3>
 <a class="btn btn-success" href="{{ url('/productos/create') }}" role="button">Nuevo producto</a>
-<a class="btn btn-success" href="{{ url('/productos/edit') }}" role="button">editar producto</a>
 <?php //prueba de editar ?>
 
 <table class="table">
