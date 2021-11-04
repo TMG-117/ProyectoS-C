@@ -9,21 +9,21 @@ class Producto extends Model
 {
 	use HasFactory;
 	protected $table = 'productos';
-	protected $primaryKey = 'producto_id';
+	protected $primaryKey = 'PRODUCTO_ID';
 	public $timestamps = false;
 	//Cambiar por atributos de la tabla
 	protected $fillable = [
-        'producto_id',
-        'categoria_id',
-        'nombre',
-        'precio_compra',
-		'precio_venta',
-		'codigo',
-		'fecha_vencimiento',
-		'cantidad',
-		'stock_minimo',
-		'imagen'
+        'PRODUCTO_ID',
+        'PROVEEDOR_ID',
+        'CLIENTE_ID',
+        'VENDEDOR_ID',
+        'NOMBREPRODUCTO',
+        'PRECIOCOMPRA',
+		'PRECIOVENTA',		
+		'STOCKMINIMO',
+		'FICHATECNICA'
     ];
 	
 	//protected $filliable =["NombreProducto","PrecioProducto","DescripcionProducto"];
 }
+

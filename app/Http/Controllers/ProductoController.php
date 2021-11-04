@@ -14,9 +14,10 @@ class ProductoController extends Controller
      */
     public function index()
     {
-       
-	   return view('productos.index');
-    }
+       $productos = Producto::paginate(5);
+        return view('productos.index',['productos' => $productos]);
+
+	    }
 
     /**
      * Show the form for creating a new resource.
