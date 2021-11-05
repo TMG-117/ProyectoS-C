@@ -61,8 +61,9 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
+		$producto = Producto::where('producto_id', $id)->first();
         return view ("productos.edit");
     }
 
@@ -86,6 +87,6 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return 'Destroy '.$id;
     }
 }

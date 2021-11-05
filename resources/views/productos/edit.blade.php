@@ -6,7 +6,7 @@
 		
 		<div class="col-md-5">
 			<label for="nombre" class="form-label">Nombre</label>
-			<input type="text" class="form-control" id="nombre" name="nombre">
+			<input type="text" class="form-control" id="nombre" name="nombre" value="{{}}">
 		</div>
 		<div class="col-md-5">
 			<label for="precio_venta" class="form-label">Precio venta</label>
