@@ -13,7 +13,7 @@
       <th scope="col">Nombre Del Producto</th>
       <th scope="col">Precio Venta</th>
       <th scope="col">Precio Compra</th>
-	    <th scope="col">Stock Minimo</th>
+	  <th scope="col">Stock Minimo</th>
       <th scope="col">Ficha tecnica</th>
       <th scope="col">Editar</th>
       <th scope="col">Eliminar</th>
@@ -37,3 +37,4 @@
    </tbody>
 </table>    
 @endsection
+

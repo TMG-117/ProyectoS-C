@@ -14,6 +14,7 @@
 				height:140px;
 			}
 		</style>
+
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -28,7 +29,28 @@
 					</div>
 				</div>
 			</nav>
+			@if (session('warning'))
+				<div class="alert alert-warning">
+				{{ session('warning') }}
+				</div>
+			@endif
 			
+			<!-- Para mensajes de 'éxito -->
+			@if (session('success'))
+				<div class="alert alert-success">
+				{{ session('success') }}
+				</div>
+			@endif
+			<!-- Para validación de formularios -->
+			@if ($errors->any())
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+			@endif
 			@yield ('contenido')
 			<footer class="text-center text-white" style="background-color: #caced1;">
 				  <!-- Grid container -->
@@ -156,4 +178,5 @@
 		
 		<script src="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js') }}" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
+
 </html>

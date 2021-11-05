@@ -37,11 +37,22 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //$productoCrear =request()->except('_token');
-		//productos::insert($productoCrear);
-
-        //return Response()->json($productoCrear);
-		dd($request);
+        $request->validate([
+        "nombre"          => 'required|unique:productos',
+        "precio_venta"    => 'required|numeric' ,
+        "precio_compra"   => 'required|numeric' ,
+        "stock_minimo"    => 'required|numeric' ,
+        "FichaTecnica"    => 'required|unique:FICHATECNICA'
+        ]);
+        db($request);exit();
+        $producto = new Producto();
+        $producto->PRODUCTO_ID    =null;
+        $producto->NOMBREPRODUCTO =$request->nombre;
+        $producto->PRECIOVENTA    =$request->precio_venta;
+        $producto->PRECIOCOMPRA   =$request->precio_compra;
+        $producto->STOCKMINIMO    =$request->stock_minimo;
+        $producto->FICHATECNICA   =$request->FichaTecnica;
+        
     }
 
     /**
@@ -63,6 +74,7 @@ class ProductoController extends Controller
      */
     public function edit()
     {
+
         return view ("productos.edit");
     }
 
@@ -86,6 +98,6 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return view ('destroy',$id);
     }
 }
