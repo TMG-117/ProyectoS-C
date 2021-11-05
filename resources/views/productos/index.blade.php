@@ -15,24 +15,27 @@
       <th scope="col">Precio Compra</th>
 	  <th scope="col">Stock Minimo</th>
       <th scope="col">Ficha tecnica</th>
-      <th scope="col">Editar</th>
-      <th scope="col">Eliminar</th>
+      <th scope="col">Acciones</th>
     </tr>
   </thead>
   <tbody>
     @foreach ($productos as $producto)
-    <tr>
-      <th scope="row">{{$producto-> PRODUCTO_ID}}</th>
-      <td>{{$producto-> NOMBREPRODUCTO}}</td>
-      <td>{{$producto-> PRECIOVENTA}}</td>
-      <td>{{$producto-> PRECIOCOMPRA}}</td>
-      <td>{{$producto-> STOCKMINIMO}}</td>
-      <td>{{$producto-> FICHATECNICA}}</td>
-      <td><a href="{{ route('productos.edit', $producto->PRODUCTO_ID) }}" class="btn btn-secondary">Editar</a></td>
-      @csrf
-      @method('DELETE')
-      <td> <button type="submit" class="btn btn-warning">Eliminar</button></td>                       
-    </tr>
+		<tr>
+		  <th scope="row">{{$producto-> PRODUCTO_ID}}</th>
+		  <td>{{$producto-> NOMBREPRODUCTO}}</td>
+		  <td>{{$producto-> PRECIOVENTA}}</td>
+		  <td>{{$producto-> PRECIOCOMPRA}}</td>
+		  <td>{{$producto-> STOCKMINIMO}}</td>
+		  <td>{{$producto-> FICHATECNICA}}</td>
+		  <td>
+			<form action="{{ route('productos.destroy', $producto->PRODUCTO_ID) }}" method="POST">
+                    <a href="{{ route('productos.edit', $producto->PRODUCTO_ID) }}" class="btn btn-secondary">Editar</a>
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-warning">Eliminar</button>
+            </form>
+		   </td>                      
+		</tr>
     @endforeach
    </tbody>
 </table>    

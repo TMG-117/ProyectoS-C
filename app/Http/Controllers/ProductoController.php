@@ -72,9 +72,13 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
+<<<<<<< HEAD
 
+=======
+		$producto = Producto::where('producto_id', $id)->first();
+>>>>>>> c0551bfbbf15213091c34431e4c9fef37db25926
         return view ("productos.edit");
     }
 
@@ -98,6 +102,10 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
+<<<<<<< HEAD
         return view ('destroy',$id);
+=======
+        return 'Destroy '.$id;
+>>>>>>> c0551bfbbf15213091c34431e4c9fef37db25926
     }
 }
