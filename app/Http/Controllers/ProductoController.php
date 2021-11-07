@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use DB;
 use App\Models\Producto;
 use Illuminate\Http\Request;
+
 
 
 class ProductoController extends Controller
@@ -25,8 +27,14 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view("productos.create");
+    {       
+
+       
+        $productos = DB::table('productos')
+            ->select('VENDEDOR_ID','CLIENTE_ID','PREVEEDOR_ID')
+            ->get();
+        
+        return view('productos.create',['productos' => $productos]);
     }
 
     /**
@@ -38,6 +46,9 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+        "PREVEEDOR_ID"    => 'required|unique:productos',
+        "CLIENTE_ID"      => 'required|unique:productos',
+        "VENDEDOR_ID"     => 'required|unique:productos',
         "nombre"          => 'required|unique:productos',
         "precio_venta"    => 'required|numeric' ,
         "precio_compra"   => 'required|numeric' ,
@@ -47,11 +58,14 @@ class ProductoController extends Controller
         db($request);exit();
         $producto = new Producto();
         $producto->PRODUCTO_ID    =null;
-        $producto->NOMBREPRODUCTO =$request->nombre;
-        $producto->PRECIOVENTA    =$request->precio_venta;
-        $producto->PRECIOCOMPRA   =$request->precio_compra;
-        $producto->STOCKMINIMO    =$request->stock_minimo;
-        $producto->FICHATECNICA   =$request->FichaTecnica;
+        $producto->PREVEEDOR_ID   =$request->PREVEEDOR_ID;
+        $producto->CLIENTE_ID     =$request->CLIENTE_ID;
+        $producto->VENDEDOR_ID    =$request->VENDEDOR_ID;
+        $producto->NOMBREPRODUCTO =$request->NOMBREPRODUCTO;
+        $producto->PRECIOVENTA    =$request->PRECIOVENTA;
+        $producto->PRECIOCOMPRA   =$request->PRECIOCOMPRA;
+        $producto->STOCKMINIMO    =$request->STOCKMINIMO;
+        $producto->FICHATECNICA   =$request->FICHATECNICA;
         
     }
 
@@ -74,12 +88,7 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-<<<<<<< HEAD
-
-=======
-		$producto = Producto::where('producto_id', $id)->first();
->>>>>>> c0551bfbbf15213091c34431e4c9fef37db25926
-        return view ("productos.edit");
+		return view ("productos.edit".$id);
     }
 
     /**
@@ -102,10 +111,8 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-<<<<<<< HEAD
-        return view ('destroy',$id);
-=======
-        return 'Destroy '.$id;
->>>>>>> c0551bfbbf15213091c34431e4c9fef37db25926
+     return view ('destroy',$id);
+
+     return 'Destroy '.$id;
     }
 }
