@@ -27,13 +27,18 @@ class ProductoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {       
+    {     
+      
+      $productos = DB::table('productos')
+            ->select('CLIENTE_ID')
+            ->get() ;
 
-       
-        $productos = DB::table('productos')
-            ->select('VENDEDOR_ID','CLIENTE_ID','PREVEEDOR_ID')
-            ->get();
-        
+      $productos = DB::table('productos')
+            ->select('PREVEEDOR_ID')
+            ->get() ;
+      $productos = DB::table('productos')
+            ->select('VENDEDOR_ID')
+            ->get(); 
         return view('productos.create',['productos' => $productos]);
     }
 
@@ -88,7 +93,8 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-		return view ("productos.edit".$id);
+       
+		return view ("productos.edit",["productos"=>$productos]);
     }
 
     /**

@@ -4,13 +4,11 @@
 
 <h3>Listado de productos</h3>
 <a class="btn btn-success" href="{{ url('/productos/create') }}" role="button">Nuevo producto</a>
-<?php //prueba de editar ?>
 
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Nro</th>
-      
+      <th scope="col">Nro</th>      
       <th scope="col">Nombre Del Producto</th>
       <th scope="col">Precio Venta</th>
       <th scope="col">Precio Compra</th>
@@ -20,21 +18,18 @@
     </tr>
   </thead>
   <tbody>
-    @foreach ($productos as $producto)
+    @foreach ($productos as $productos)
 		<tr>
-		  <th scope="row">{{$producto-> PRODUCTO_ID}}</th>
-      
-      <td>{{$producto-> NOMBREPRODUCTO}}</td>
-		  <td>{{$producto-> PRECIOVENTA}}</td>
-		  <td>{{$producto-> PRECIOCOMPRA}}</td>
-		  <td>{{$producto-> STOCKMINIMO}}</td>
-		  <td>{{$producto-> FICHATECNICA}}</td>
+		  <th scope="row">{{$productos-> PRODUCTO_ID}}</th>      
+      <td>{{$productos-> NOMBREPRODUCTO}}</td>
+		  <td>{{$productos-> PRECIOVENTA}}</td>
+		  <td>{{$productos-> PRECIOCOMPRA}}</td>
+		  <td>{{$productos-> STOCKMINIMO}}</td>
+		  <td>{{$productos-> FICHATECNICA}}</td>
 		  <td>
-			  <form action="{{ route('productos.destroy', $producto->PRODUCTO_ID) }}" method="POST">
-            <a href="{{ route('productos.edit', $producto->PRODUCTO_ID) }}" class="btn btn-secondary">Editar</a>
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-warning">Eliminar</button>
+			  <form  method="POST">
+          <a href="{{route('productos.edit', $productos->PRODUCTO_ID)}}">Editar</a>
+           
         </form>
 		  </td>                      
 		</tr>

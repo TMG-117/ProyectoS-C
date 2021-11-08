@@ -4,19 +4,14 @@
 
      <form action="{{ route('productos.store') }}" method="POST" class="row g-3" enctype="multipart/form-data">
 		@csrf
-		
+	    
         <select class="form-select" aria-label="Default select example" name="VENDEDOR_ID">
           <option value="">Elegir Vendedor</option>
           @foreach($productos as $productos)
           <option value="VENDEDOR_ID" >{{$productos-> VENDEDOR_ID}}</option>
           @endforeach
-        </select>
-        
-            
-        
-		
+        </select>    
                
-
 		<div class="col-md-6">
 			<label for="NOMBREPRODUCTO" class="form-label">Nombre</label>
 			<input type="text" class="form-control" id="NOMBREPRODUCTO" name="NOMBREPRODUCTO">
