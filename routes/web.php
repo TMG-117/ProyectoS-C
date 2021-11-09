@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route,
 
 
 Route::resource('productos', ProductoController::class);
-
+Route::resource('productos', ProductoController::class)->only([
+    'index', 'create', 'store', 'edit', 'update', 'destroy'
+]);
 
 
 

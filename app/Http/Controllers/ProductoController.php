@@ -52,16 +52,16 @@ class ProductoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        "PREVEEDOR_ID"    => 'required|unique:productos',
-        "CLIENTE_ID"      => 'required|unique:productos',
-        "VENDEDOR_ID"     => 'required|unique:productos',
-        "nombre"          => 'required|unique:productos',
-        "precio_venta"    => 'required|numeric' ,
-        "precio_compra"   => 'required|numeric' ,
-        "stock_minimo"    => 'required|numeric' ,
-        "FichaTecnica"    => 'required|unique:FICHATECNICA'
+        "PREVEEDOR_ID"    => 'required',
+        "CLIENTE_ID"      => 'required',
+        "VENDEDOR_ID"     => 'required',
+        "NOMBREPRODUCTO"  => 'required|unique:productos',
+        "PRECIOVENTA"     => 'required|numeric' ,
+        "PRECIOCOMPRA"    => 'required|numeric' ,
+        "STOCKMINIMO"     => 'required|numeric' ,
+        "FICHATECNICA"    => 'required|unique:productos'
         ]);
-        db($request);exit();
+        //dd($request);exit();
         $producto = new Producto();
         $producto->PRODUCTO_ID    =null;
         $producto->PREVEEDOR_ID   =$request->PREVEEDOR_ID;
@@ -73,6 +73,12 @@ class ProductoController extends Controller
         $producto->STOCKMINIMO    =$request->STOCKMINIMO;
         $producto->FICHATECNICA   =$request->FICHATECNICA;
         
+        $respuesta = $producto->save();
+        if($respuesta){
+            return redirect('/productos')->with('success', 'Nuevo producto registrado con éxito');
+        }else{
+            return redirect('/productos/create')->with('warning', 'Ocurrio un error');
+        }
     }
 
     /**
@@ -115,6 +121,7 @@ class ProductoController extends Controller
         return view ('productos.edit',['clientes'=>$clientes, 'proveedores'=>$proveedores,'vendedores'=>$vendedores,'producto'=>$producto]);
     }
     
+    
 
     /**
      * Update the specified resource in storage.
@@ -125,7 +132,48 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $request->validate([
+        "PREVEEDOR_ID"    => 'required',
+        "CLIENTE_ID"      => 'required',
+        "VENDEDOR_ID"     => 'required',
+        "NOMBREPRODUCTO"  => 'required',
+        "PRECIOVENTA"     => 'required|numeric' ,
+        "PRECIOCOMPRA"    => 'required|numeric' ,
+        "STOCKMINIMO"     => 'required|numeric' ,
+        "FICHATECNICA"    => 'required'
+        ]);
+       // dd($request);exit();
+       
+        $producto = new Producto();
+        $producto->PRODUCTO_ID    =null;
+        $producto->PREVEEDOR_ID   =$request->PREVEEDOR_ID;
+        $producto->CLIENTE_ID     =$request->CLIENTE_ID;
+        $producto->VENDEDOR_ID    =$request->VENDEDOR_ID;
+        $producto->NOMBREPRODUCTO =$request->NOMBREPRODUCTO;
+        $producto->PRECIOVENTA    =$request->PRECIOVENTA;
+        $producto->PRECIOCOMPRA   =$request->PRECIOCOMPRA;
+        $producto->STOCKMINIMO    =$request->STOCKMINIMO;
+        $producto->FICHATECNICA   =$request->FICHATECNICA;
+        //dd($producto);exit();
+        $respuesta = Producto::where('PRODUCTO_ID', $id)
+                            ->update(                                
+                                [
+                                 'PREVEEDOR_ID'    => $producto->PREVEEDOR_ID,
+                                 'CLIENTE_ID'      => $producto->CLIENTE_ID,
+                                 'VENDEDOR_ID'     => $producto->VENDEDOR_ID,
+                                 'NOMBREPRODUCTO'  => $producto->NOMBREPRODUCTO,
+                                 'PRECIOVENTA'     => $producto->PRECIOVENTA,
+                                 'PRECIOCOMPRA'    => $producto->PRECIOCOMPRA,
+                                 'STOCKMINIMO'     => $producto->STOCKMINIMO,
+                                 'FICHATECNICA'    =>$producto->FICHATECNICA
+                            ]);
+        if($respuesta){
+            return redirect('/productos?page='.$request->pagina)->with('success', 'Producto actualizado con éxito');
+            
+            return redirect('/orm/index?page='.$request->pagina)->with('mensaje','El registro ha sido modificado exitosamente'); 
+        }else{
+            return redirect('/productos')->with('warning', 'Ocurrio un error');
+        }
     }
 
     /**
@@ -136,9 +184,12 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-     return view ('destroy',$id);
-
-     return 'Destroy '.$id;
+     $respuesta = DB::table('productos')->where('PRODUCTO_ID', '=', $id)->delete();
+        if($respuesta){
+            return redirect('/productos')->with('success', 'Producto eliminado');
+        }else{
+            return redirect('/productos')->with('warning', 'No se pudo eliminar este producto');
+        }
     }
 }
 

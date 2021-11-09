@@ -14,6 +14,7 @@
       <th scope="col">Precio Compra</th>
 	    <th scope="col">Stock Minimo</th>
       <th scope="col">Ficha tecnica</th>
+      
       <th scope="col">Acciones</th>
     </tr>
   </thead>
@@ -27,18 +28,17 @@
 		  <td>{{$producto-> STOCKMINIMO}}</td>
 		  <td>{{$producto-> FICHATECNICA}}</td>
 		  <td>
-			  <form  method="POST">
-          <button  type="button" class="btn btn-warning"><a href="{{route('productos.edit', $producto->PRODUCTO_ID)}}">Editar</a></button>
-          @csrf
-          @method('DELETE')
-          <button type="submit" class="btn btn-danger">Eliminar</button>
-          
-           
-        </form>
+			 <form action="{{ route('productos.destroy', $producto->PRODUCTO_ID) }}" method="POST">
+        <a href="{{ route('productos.edit', $producto->PRODUCTO_ID) }}" class="btn btn-secondary">Editar</a>
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-warning">Eliminar</button>
+       </form>
 		  </td>                      
 		</tr>
     @endforeach
    </tbody>
-</table>    
+</table>  
+{{ $productos->links() }}  
 @endsection
 

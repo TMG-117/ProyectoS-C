@@ -4,15 +4,15 @@
 
 <h3>Editar producto</h3>
 	
-<form action=" metho{{route('productos.update', $producto->PRODUCTO_ID) }}d="POST">
+<form action="{{route('productos.update', $producto->PRODUCTO_ID) }}" method="POST">
 @csrf
-@metod('PUT')
+@method('PUT')
 	<div class="col-md-3">
 		<label for="CLIENTE_ID" class="form-label">Cliente</label>
 			<select id="CLIENTE_ID" class="form-select" name="CLIENTE_ID">
 				<option value="" selected>Seleccione...</option>
-			@foreach($clientes as $clientes)
-			<option>{{ $clientes-> NOMBRECLIENTE }}</option>
+			@foreach($clientes as $cliente)
+			<option value="{{$cliente-> CLIENTE_ID}}">{{ $cliente-> NOMBRECLIENTE }}</option>
 			@endforeach 
 		</select>
 	</div>
@@ -20,8 +20,8 @@
 		<label for="PREVEEDOR_ID" class="form-label">Proveedor</label>
 		    <select id="PREVEEDOR_ID" class="form-select" name="PREVEEDOR_ID">
 			    <option value="" selected>Seleccione...</option>
-			    @foreach($proveedores as $proveedores)
-				    <option>{{ $proveedores-> NOMBRE_PROVEEDOR }}</option>
+			    @foreach($proveedores as $proveedor)
+				    <option value="{{$proveedor-> PREVEEDOR_ID}}">{{ $proveedor-> NOMBRE_PROVEEDOR }}</option>
 			    @endforeach
 		    </select>
 	</div>
@@ -29,8 +29,8 @@
 		<label for="VENDEDOR_ID" class="form-label">VENDEDOR</label>
 		    <select id="VENDEDOR_ID" class="form-select" name="VENDEDOR_ID">
 			    <option value="" selected>Seleccione...</option>
-			    @foreach($vendedores as $vendedores)
-				    <option>{{$vendedores-> NOMBREVENDEDOR }}</option>
+			    @foreach($vendedores as $vendedor)
+				    <option value="{{$vendedor ->VENDEDOR_ID}}">{{$vendedor-> NOMBREVENDEDOR }}</option>
 			    @endforeach
 	        </select>
 	</div>
@@ -61,8 +61,7 @@
 	</div>
 		
 	<div class="col-md-6">
-	<button type="button" class="btn btn-link"><a href="{{url('productos/')}}"type="button" class="btn btn-succes">Registar</a></button>
-		
+	<button type="submit" class="btn btn-dark">Editar</button>		
 	</div>
 </form> 
 @endsection
