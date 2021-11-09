@@ -29,6 +29,9 @@
 		  <td>
 			  <form  method="POST">
           <button  type="button" class="btn btn-warning"><a href="{{route('productos.edit', $producto->PRODUCTO_ID)}}">Editar</a></button>
+          @csrf
+          @method('DELETE')
+          <button type="submit" class="btn btn-danger">Eliminar</button>
           
            
         </form>

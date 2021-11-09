@@ -60,8 +60,9 @@
 		<input type="text" class="form-control" id="FICHATECNICA" name="FICHATECNICA" value="{{$producto->FICHATECNICA}}">		
 	</div>
 		
-	<div class="d-grid gap-2">
-		<button type="submit" class="btn btn-primary">Registrar</button>
+	<div class="col-md-6">
+	<button type="button" class="btn btn-link"><a href="{{url('productos/')}}"type="button" class="btn btn-succes">Registar</a></button>
+		
 	</div>
 </form> 
 @endsection
