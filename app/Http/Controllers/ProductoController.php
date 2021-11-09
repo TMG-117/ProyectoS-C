@@ -29,17 +29,19 @@ class ProductoController extends Controller
     public function create()
     {     
       
-      $productos = DB::table('productos')
-            ->select('CLIENTE_ID')
+      $clientes = DB::table('clientes')
+            ->select('CLIENTE_ID','NOMBRECLIENTE')
             ->get() ;
-
-      $productos = DB::table('productos')
-            ->select('PREVEEDOR_ID')
+        
+      $proveedores = DB::table('proveedores')
+            ->select('PREVEEDOR_ID','NOMBRE_PROVEEDOR')
             ->get() ;
-      $productos = DB::table('productos')
-            ->select('VENDEDOR_ID')
+            
+      $vendedores = DB::table('vendedores')
+            ->select('VENDEDOR_ID','NOMBREVENDEDOR')
             ->get(); 
-        return view('productos.create',['productos' => $productos]);
+           
+        return view ('productos.create',['clientes'=>$clientes, 'proveedores'=>$proveedores,'vendedores'=>$vendedores]);
     }
 
     /**
@@ -93,8 +95,25 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
-       
-		return view ("productos.edit",["productos"=>$productos]);
+        $producto = Producto::where('PREVEEDOR_ID', $id)->first();
+        $proveedores = DB::table('provedores')
+            ->select('PREVEEDOR_ID', 'NOMBRE_PROVEEDOR')
+            ->orderBy('NOMBRE_PROVEEDOR')
+            ->get();
+
+            
+        $clientes = DB::table('clientes')
+            ->select('CLIENTE_ID', 'NOMBRECLIENTE')
+            ->orderBy('NOMBRECLIENTE')
+            ->get();
+
+            
+        $vendedores = DB::table('vendedores')
+            ->select('categoria_id', 'nombre')
+            ->orderBy('nombre')
+            ->get();
+
+		return view ("productos.edit",["producto"=>$producto,'proveedores'=>$proveedores,'clientes'=>$clientes,'vendedores'=>$vendedores]);
     }
 
     /**
@@ -122,3 +141,4 @@ class ProductoController extends Controller
      return 'Destroy '.$id;
     }
 }
+

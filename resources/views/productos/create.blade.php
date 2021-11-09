@@ -1,17 +1,37 @@
-@extends("layout.layout")
-@section("titulo", "Registrar producto")
-@section("contenido")
-
-     <form action="{{ route('productos.store') }}" method="POST" class="row g-3" enctype="multipart/form-data">
+@extends('layout.layout')
+@section('title','Nuevo123')
+@section('content')
+	<h3>Crear nuevo producto</h3>
+	
+	<form action="{{ route('productos.store') }}" method="POST" class="row g-3" enctype="multipart/form-data">
 		@csrf
-	    
-        <select class="form-select" aria-label="Default select example" name="VENDEDOR_ID">
-          <option value="">Elegir Vendedor</option>
-          @foreach($productos as $productos)
-          <option value="VENDEDOR_ID" >{{$productos-> VENDEDOR_ID}}</option>
-          @endforeach
-        </select>    
-               
+		<div class="col-md-3">
+		<label for="CLIENTE_ID" class="form-label">Cliente</label>
+		<select id="CLIENTE_ID" class="form-select" name="CLIENTE_ID">
+			<option value="" selected>Seleccione...</option>
+			@foreach($clientes as $c)
+				<option value="{{ $c->CLIENTE_ID }}">{{ $c->NOMBRECLIENTE }}</option>
+			@endforeach
+		</select>
+	</div>
+	<div>
+		<select id="PREVEEDOR_ID" class="form-select" name="PREVEEDOR_ID">
+			<option value="" selected>Seleccione...</option>
+			@foreach($proveedores as $p)
+				<option value="{{ $p->PREVEEDOR_ID }}">{{ $p->NOMBRE_PROVEEDOR }}</option>
+			@endforeach
+		</select>
+		</div>
+		<div>
+		<select id="VENDEDOR_ID" class="form-select" name="VENDEDOR_ID">
+			<option value="" selected>Seleccione...</option>
+			@foreach($vendedores as $v)
+				<option value="{{ $v-> VENDEDOR_ID}}">{{ $v->NOMBREVENDEDOR }}</option>
+			@endforeach
+		</select>
+		</div>
+		
+		
 		<div class="col-md-6">
 			<label for="NOMBREPRODUCTO" class="form-label">Nombre</label>
 			<input type="text" class="form-control" id="NOMBREPRODUCTO" name="NOMBREPRODUCTO">
@@ -36,14 +56,9 @@
 			<label for="FICHATECNICA" class="form-label">Ficha Tecnica</label>
             <input type="text" class="form-control" id="FICHATECNICA" name="FICHATECNICA">
 		</div>
-
-		<div class="d-grid gap-12">
+		
+		<div class="d-grid gap-2">
 			<button type="submit" class="btn btn-primary">Registrar</button>
 		</div>
-		
 	</form>
-    
-    @endsection
-     
-
-
+@endsection

@@ -3,7 +3,7 @@
 @section("contenido")
 <form action="{{ route('productos.store') }}" method="POST" class="row g-3" enctype="multipart/form-data">
 		@csrf
- ($productos as productos)
+ ($productos as $productos)
  <div class="col-md-5">
 	<label for="nombre" class="form-label">Nombre</label>
 	<input type="text" class="form-control"   value="{{$productos->NOMBREPRODUCTO}}">
