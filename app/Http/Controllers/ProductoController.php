@@ -28,15 +28,14 @@ class ProductoController extends Controller
      */
     public function create()
     {     
-      
-      $clientes = DB::table('clientes')
-            ->select('CLIENTE_ID','NOMBRECLIENTE')
-            ->get() ;
-        
       $proveedores = DB::table('proveedores')
             ->select('PREVEEDOR_ID','NOMBRE_PROVEEDOR')
             ->get() ;
-            
+
+      $clientes = DB::table('clientes')
+            ->select('CLIENTE_ID','NOMBRECLIENTE')
+            ->get() ;
+                  
       $vendedores = DB::table('vendedores')
             ->select('VENDEDOR_ID','NOMBREVENDEDOR')
             ->get(); 
@@ -93,28 +92,23 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Producto $producto)
     {
-        $producto = Producto::where('PREVEEDOR_ID', $id)->first();
-        $proveedores = DB::table('provedores')
-            ->select('PREVEEDOR_ID', 'NOMBRE_PROVEEDOR')
-            ->orderBy('NOMBRE_PROVEEDOR')
-            ->get();
+        $proveedores = DB::table('proveedores')
+            ->select('PREVEEDOR_ID','NOMBRE_PROVEEDOR')
+            ->get() ;
 
-            
-        $clientes = DB::table('clientes')
-            ->select('CLIENTE_ID', 'NOMBRECLIENTE')
-            ->orderBy('NOMBRECLIENTE')
-            ->get();
-
-            
-        $vendedores = DB::table('vendedores')
-            ->select('categoria_id', 'nombre')
-            ->orderBy('nombre')
-            ->get();
-
-		return view ("productos.edit",["producto"=>$producto,'proveedores'=>$proveedores,'clientes'=>$clientes,'vendedores'=>$vendedores]);
+      $clientes = DB::table('clientes')
+            ->select('CLIENTE_ID','NOMBRECLIENTE')
+            ->get() ;
+                  
+      $vendedores = DB::table('vendedores')
+            ->select('VENDEDOR_ID','NOMBREVENDEDOR')
+            ->get(); 
+           
+        return view ('productos.edit',['clientes'=>$clientes, 'proveedores'=>$proveedores,'vendedores'=>$vendedores]);
     }
+    
 
     /**
      * Update the specified resource in storage.

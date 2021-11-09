@@ -28,7 +28,8 @@
 		  <td>{{$productos-> FICHATECNICA}}</td>
 		  <td>
 			  <form  method="POST">
-          <a href="{{route('productos.edit', $productos->PRODUCTO_ID)}}">Editar</a>
+          <button  type="button" class="btn btn-warning"><a href="{{route('productos.edit', $productos->PRODUCTO_ID)}}">Editar</a></button>
+          
            
         </form>
 		  </td>                      
