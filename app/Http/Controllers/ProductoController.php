@@ -92,21 +92,27 @@ class ProductoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $producto)
+    public function edit($id)
     {
-        $proveedores = DB::table('proveedores')
+      //return($producto);
+    $proveedores = DB::table('proveedores')
             ->select('PREVEEDOR_ID','NOMBRE_PROVEEDOR')
             ->get() ;
 
-      $clientes = DB::table('clientes')
+    $clientes = DB::table('clientes')
             ->select('CLIENTE_ID','NOMBRECLIENTE')
             ->get() ;
                   
-      $vendedores = DB::table('vendedores')
+    $vendedores = DB::table('vendedores')
             ->select('VENDEDOR_ID','NOMBREVENDEDOR')
             ->get(); 
+            
            
-        return view ('productos.edit',['clientes'=>$clientes, 'proveedores'=>$proveedores,'vendedores'=>$vendedores]);
+    $producto = DB::table('productos')
+    ->select('PRODUCTO_ID','NOMBREPRODUCTO','PRECIOVENTA','PRECIOCOMPRA','STOCKMINIMO','FICHATECNICA')
+    ->where('PRODUCTO_ID', $id)->first();
+
+        return view ('productos.edit',['clientes'=>$clientes, 'proveedores'=>$proveedores,'vendedores'=>$vendedores,'producto'=>$producto]);
     }
     
 
@@ -119,7 +125,7 @@ class ProductoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return view ("edit",["producto"=>$producto]);
+        //
     }
 
     /**

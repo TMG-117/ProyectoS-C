@@ -18,17 +18,17 @@
     </tr>
   </thead>
   <tbody>
-    @foreach ($productos as $productos)
+    @foreach ($productos as $producto)
 		<tr>
-		  <th scope="row">{{$productos-> PRODUCTO_ID}}</th>      
-      <td>{{$productos-> NOMBREPRODUCTO}}</td>
-		  <td>{{$productos-> PRECIOVENTA}}</td>
-		  <td>{{$productos-> PRECIOCOMPRA}}</td>
-		  <td>{{$productos-> STOCKMINIMO}}</td>
-		  <td>{{$productos-> FICHATECNICA}}</td>
+		  <th scope="row">{{$producto-> PRODUCTO_ID}}</th>      
+      <td>{{$producto-> NOMBREPRODUCTO}}</td>
+		  <td>{{$producto-> PRECIOVENTA}}</td>
+		  <td>{{$producto-> PRECIOCOMPRA}}</td>
+		  <td>{{$producto-> STOCKMINIMO}}</td>
+		  <td>{{$producto-> FICHATECNICA}}</td>
 		  <td>
 			  <form  method="POST">
-          <button  type="button" class="btn btn-warning"><a href="{{route('productos.edit', $productos->PRODUCTO_ID)}}">Editar</a></button>
+          <button  type="button" class="btn btn-warning"><a href="{{route('productos.edit', $producto->PRODUCTO_ID)}}">Editar</a></button>
           
            
         </form>

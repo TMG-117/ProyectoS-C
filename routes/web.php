@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route,
 
 
 Route::resource('productos', ProductoController::class);
-Route::get('productos/edit',[ProductoController::class, 'edit']);
-Route::get('productos/create',[ProductoController::class, 'create']);
+
+
 
 
