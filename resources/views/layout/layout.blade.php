@@ -25,7 +25,16 @@
 						<span class="navbar-toggler-icon"></span>
 					</button>
 					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-						<a class="navbar-brand" href="{{url('productos/')}}">Menu</a>
+						<a class="navbar-brand" href="{{url('productos')}}">Productos</a>
+					</div>
+					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+						<a class="navbar-brand" href="{{url('productos')}}">Vendedores</a>
+					</div>
+					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+						<a class="navbar-brand" href="{{url('productos')}}">Clientes</a>
+					</div>
+					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+						<a class="navbar-brand" href="{{url('productos')}}">Proveedores</a>
 					</div>
 				</div>
 			</nav>

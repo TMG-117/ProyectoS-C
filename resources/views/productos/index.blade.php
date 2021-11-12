@@ -39,6 +39,6 @@
     @endforeach
    </tbody>
 </table>  
-{{ $productos->links() }}  
+{{ $productos->links() }}
 @endsection
 

@@ -7,7 +7,7 @@
 
 @csrf
 
-	<div class="col-md-3">
+	<div class="col-md-2">
 		<label for="CLIENTE_ID" class="form-label">Cliente</label>
 			<select id="CLIENTE_ID" class="form-select" name="CLIENTE_ID">
 				<option value="" selected>Seleccione...</option>
@@ -16,7 +16,7 @@
 				@endforeach
 		</select>
 	</div>
-	<div class="col-md-3">
+	<div class="col-md-2">
 		<label for="PREVEEDOR_ID" class="form-label">Proveedor</label>
 		    <select id="PREVEEDOR_ID" class="form-select" name="PREVEEDOR_ID">
 			    <option value="" selected>Seleccione...</option>
@@ -25,7 +25,7 @@
 			    @endforeach
 		    </select>
 	</div>
-	<div class="col-md-3">
+	<div class="col-md-2">
 		<label for="VENDEDOR_ID" class="form-label">VENDEDOR</label>
 		    <select id="VENDEDOR_ID" class="form-select" name="VENDEDOR_ID">
 			    <option value="" selected>Seleccione...</option>
@@ -40,22 +40,22 @@
 		<input type="text" class="form-control" id="NOMBREPRODUCTO" name="NOMBREPRODUCTO">
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-3">
 		<label for="PRECIOVENTA" class="form-label">Precio venta</label>
 		<input type="number" class="form-control" id="PRECIOVENTA" name="PRECIOVENTA">
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-3">
 		<label for="PRECIOCOMPRA" class="form-label">Precio compra</label>
 		<input type="number" class="form-control" id="PRECIOCOMPRA" name="PRECIOCOMPRA">
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-3">
 		<label for="STOCKMINIMO" class="form-label">Stock mínimo</label>
 		<input type="number" class="form-control" id="STOCKMINIMO" name="STOCKMINIMO">
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-3">
 		<label for="FICHATECNICA" class="form-label">Ficha Tecnica</label>
         <input type="text" class="form-control" id="FICHATECNICA" name="FICHATECNICA">
 	</div>
